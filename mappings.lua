@@ -17,12 +17,6 @@ local mappings = {
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
-    -- better search
-    n = { require("user.utils").better_search "n", desc = "Next search" },
-    N = { require("user.utils").better_search "N", desc = "Previous search" },
-    -- better increment/decrement
-    ["-"] = { "<c-x>", desc = "Descrement number" },
-    ["+"] = { "<c-a>", desc = "Increment number" },
     -- resize with arrows
     ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
     ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
@@ -30,6 +24,9 @@ local mappings = {
     ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
+    -- buffer controls
+    ["<leader>w"] = { "<cmd>wa<cr> <cmd>w<cr>", desc = "Save all buffers" },
+    ["<leader>q"] = { "<cmd>qa<cr>", desc = "Quit all buffers" },
     -- vim-sandwich
     ["s"] = "<Nop>",
     ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
@@ -100,8 +97,36 @@ local mappings = {
     ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
     ["<leader>mt"] = { "<cmd>TexlabBuild<cr>", desc = "LaTeX" },
     ["<leader>mf"] = { "<cmd>TexlabForward<cr>", desc = "Forward Search" },
+    -- Treesitter Surfer
+    ["<C-Shift-j>"] = {
+      function() require("syntax-tree-surfer").move("n", false) end,
+      desc = "Swap next tree-sitter object",
+    },
+    ["<C-Shift-l>"] = {
+      function() require("syntax-tree-surfer").move("n", false) end,
+      desc = "Swap next tree-sitter object",
+    },
+    ["<C-Shift-k>"] = {
+      function() require("syntax-tree-surfer").move("n", true) end,
+      desc = "Swap previous tree-sitter object",
+    },
+    ["<C-Shift-h>"] = {
+      function() require("syntax-tree-surfer").move("n", true) end,
+      desc = "Swap previous tree-sitter object",
+    },
+    ["<F3>"] = { function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    ["<F5>"] = { function() require("dap").continue() end, desc = "Continue" },
+    ["<F8>"] = { function() require("dap").step_into() end, desc = "step_into" },
+    ["<F9>"] = { function() require("dap").step_over() end, desc = "step_over" },
+    ["<F10>"] = { function() require("dap").step_out() end, desc = "step_out" },
+    -- fast split
+    ["|"] = { ":vs<CR>" },
+    -- fast add new tabs
+    ["T"] = { "<C-w>T" },
   },
   i = {
+    -- type template string
+    ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },

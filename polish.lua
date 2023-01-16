@@ -1,4 +1,13 @@
 return function()
+  vim.cmd [[
+  fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+  \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+  \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+  endfun
+  call SetupCommandAlias("W","w")
+  ]]
+
   local function yaml_ft(path, bufnr)
     -- get content of buffer as string
     local content = vim.filetype.getlines(bufnr)
@@ -25,6 +34,12 @@ return function()
       ["/tmp/neomutt.*"] = "markdown",
     },
   }
+
+  vim.api.nvim_create_autocmd("FileType", {
+    desc = "C/C++ tabbing",
+    pattern = { "c", "cpp" },
+    callback = function() astronvim.vim_opts { opt = { shiftwidth = 4, tabstop = 4 } } end,
+  })
 
   require "user.autocmds"
 end

@@ -5,4 +5,8 @@ return {
 
   { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
   { "folke/which-key.nvim", opts = { window = { border = "none" } } },
+  ["indent-o-matric"] = {
+    filetype_c = { max_lines = 0 },
+    filetype_cpp = { max_lines = 0 },
+  },
 }

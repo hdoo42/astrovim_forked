@@ -1,0 +1,45 @@
+{
+  "classb": {
+    "prefix": ["classb"],
+    "body": [
+      "class ${1:MyClass}",
+      "{",
+      "private:",
+      "\t$2",
+      "",
+      "public:",
+      "\t$1();",
+      "\t~$1();",
+      "\t$1(const $1& ref);",
+      "\tconst $1& operator=(const $1& ref);",
+      "};",
+      "",
+      "$1::$1()",
+      "{",
+      "}",
+      "",
+      "$1::~$1()",
+      "{",
+      "}",
+      "$1::$1(const $1& ref)",
+      "{",
+      "}",
+      "const $1& $1::operator=(const $1& ref)",
+      "{",
+      "}"
+    ],
+    "description": "Code snippet for basic class"
+  },
+  "test": {
+    "prefix": ["test"],
+    "body": [
+      "#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN",
+      "#include \"doctest.h\"",
+      "",
+      "TEST_CASE",
+      "{",
+      "}"
+    ],
+    "description": "Code snippet for test frame"
+  }
+}
