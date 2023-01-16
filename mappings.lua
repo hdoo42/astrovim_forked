@@ -9,24 +9,30 @@ local mappings = {
     ["<C-q>"] = false,
     ["<C-s>"] = false,
     ["q:"] = ":",
+
     -- better buffer navigation
     ["]b"] = false,
     ["[b"] = false,
     ["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
     ["<S-h>"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
+
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
+
     -- resize with arrows
     ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
     ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
     ["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
     ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
+
     -- buffer controls
     ["<leader>w"] = { "<cmd>wa<cr> <cmd>w<cr>", desc = "Save all buffers" },
     ["<leader>q"] = { "<cmd>qa<cr>", desc = "Quit all buffers" },
+
     -- vim-sandwich
     ["s"] = "<Nop>",
     ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
@@ -34,6 +40,7 @@ local mappings = {
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+
     -- neogen
     ["<leader>a"] = { name = "Annotate" },
     ["<leader>a<cr>"] = { function() require("neogen").generate() end, desc = "Current" },
@@ -41,11 +48,13 @@ local mappings = {
     ["<leader>af"] = { function() require("neogen").generate { type = "func" } end, desc = "Function" },
     ["<leader>at"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" },
     ["<leader>aF"] = { function() require("neogen").generate { type = "file" } end, desc = "File" },
+
     -- telescope plugin mappings
     ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     ["<leader>fM"] = { "<cmd>Telescope media_files<cr>", desc = "Find media" },
     ["<leader>fp"] = { "<cmd>Telescope project<cr>", desc = "Find projects" },
+
     -- compiler
     ["<leader>m"] = { name = "Compiler" },
     ["<leader>mk"] = {
@@ -97,23 +106,7 @@ local mappings = {
     ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
     ["<leader>mt"] = { "<cmd>TexlabBuild<cr>", desc = "LaTeX" },
     ["<leader>mf"] = { "<cmd>TexlabForward<cr>", desc = "Forward Search" },
-    -- Treesitter Surfer
-    ["<C-Shift-j>"] = {
-      function() require("syntax-tree-surfer").move("n", false) end,
-      desc = "Swap next tree-sitter object",
-    },
-    ["<C-Shift-l>"] = {
-      function() require("syntax-tree-surfer").move("n", false) end,
-      desc = "Swap next tree-sitter object",
-    },
-    ["<C-Shift-k>"] = {
-      function() require("syntax-tree-surfer").move("n", true) end,
-      desc = "Swap previous tree-sitter object",
-    },
-    ["<C-Shift-h>"] = {
-      function() require("syntax-tree-surfer").move("n", true) end,
-      desc = "Swap previous tree-sitter object",
-    },
+
     ["<F3>"] = { function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     ["<F5>"] = { function() require("dap").continue() end, desc = "Continue" },
     ["<F8>"] = { function() require("dap").step_into() end, desc = "step_into" },
@@ -124,6 +117,7 @@ local mappings = {
     -- fast add new tabs
     ["T"] = { "<C-w>T" },
   },
+
   i = {
     -- type template string
     ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
@@ -139,16 +133,19 @@ local mappings = {
     ["<c-d>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
     ["<c-d>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
+
   v = {
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
   },
+
   -- terminal mappings
   t = {
     ["<C-q>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
     ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
   },
+
   x = {
     -- better increment/decrement
     ["+"] = { "g<C-a>", desc = "Increment number" },
@@ -161,6 +158,7 @@ local mappings = {
     -- vim-sandwich
     ["s"] = "<Nop>",
   },
+
   o = {
     -- line text-objects
     ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
