@@ -6,7 +6,7 @@ return {
   },
   opts = {
     auto_install = vim.fn.executable "tree-sitter" == 1,
-    ensure_installed = { "lua", "c", "cpp", "vim", "bash", "help", "comment" },
+    ensure_installed = { "lua", "c", "cpp", "vim", "bash", "help", "comment", "make" },
     highlight = { disable = { "help" } },
     indent = { enable = false, disable = { "python" } },
     matchup = { enable = true },

@@ -9,6 +9,7 @@ local mappings = {
     ["<C-q>"] = false,
     ["<C-s>"] = false,
     ["q:"] = ":",
+    ["Y"] = { '"*y', desc = "yank with clipboad" },
 
     -- better buffer navigation
     ["]b"] = false,
