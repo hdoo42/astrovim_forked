@@ -1,6 +1,8 @@
 {
   "classb": {
-    "prefix": ["classb"],
+    "prefix": [
+      "classb"
+    ],
     "body": [
       "class ${1:MyClass}",
       "{",
@@ -24,14 +26,16 @@
       "$1::$1(const $1& ref)",
       "{",
       "}",
-      "const $1& $1::operator=(const $1& ref)",
+      "$1& $1::operator=(const $1& ref)",
       "{",
       "}"
     ],
     "description": "Code snippet for basic class"
   },
   "test": {
-    "prefix": ["test"],
+    "prefix": [
+      "test"
+    ],
     "body": [
       "#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN",
       "#include \"doctest.h\"",

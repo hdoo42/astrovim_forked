@@ -6,7 +6,9 @@
   "contributes": {
     "snippets": [
       {
-        "language": "cpp",
+        "language": [
+          "cpp"
+        ],
         "path": "./cpp.json"
       }
     ]
