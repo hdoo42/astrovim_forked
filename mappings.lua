@@ -17,10 +17,6 @@ local mappings = {
     ["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
     ["<S-h>"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
 
-    -- navigating wrapped lines
-    j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate down" },
-
     -- resize with arrows
     ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
     ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },

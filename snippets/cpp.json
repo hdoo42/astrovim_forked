@@ -36,7 +36,7 @@
       "#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN",
       "#include \"doctest.h\"",
       "",
-      "TEST_CASE",
+      "TEST_CASE(\"${1:My Test}\")",
       "{",
       "}"
     ],
