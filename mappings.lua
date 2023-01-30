@@ -16,7 +16,12 @@ local mappings = {
     ["[b"] = false,
     ["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
     ["<S-h>"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
-
+    -- better search
+    n = { require("user.utils").better_search "n", desc = "Next search" },
+    N = { require("user.utils").better_search "N", desc = "Previous search" },
+    -- better increment/decrement
+    ["-"] = { "<c-x>", desc = "Descrement number" },
+    ["+"] = { "<c-a>", desc = "Increment number" },
     -- resize with arrows
     ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
     ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
@@ -32,7 +37,6 @@ local mappings = {
 
     -- vim-sandwich
     ["s"] = "<Nop>",
-    ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
