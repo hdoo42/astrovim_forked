@@ -135,12 +135,6 @@ local mappings = {
     ["<c-d>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
 
-  v = {
-    -- navigating wrapped lines
-    j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate down" },
-  },
-
   -- terminal mappings
   t = {
     ["<C-q>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
