@@ -1,5 +1,5 @@
 return {
-  { "42Paris/42header" },
+  { "42Paris/42header", lazy = false },
   { "eandrju/cellular-automaton.nvim" },
   {
     "L3MON4D3/LuaSnip",

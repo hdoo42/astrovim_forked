@@ -13,7 +13,7 @@
       "\t$1();",
       "\t~$1();",
       "\t$1(const $1& ref);",
-      "\tconst $1& operator=(const $1& ref);",
+      "\t$1& operator=(const $1& ref);",
       "};",
       "",
       "$1::$1()",
