@@ -5,7 +5,6 @@ return {
       "andymass/vim-matchup",
       init = function()
         vim.g.matchup_matchparen_deferred = 1
-
         vim.api.nvim_create_autocmd("FileType", {
           desc = "Disable matchup for julia",
           group = vim.api.nvim_create_augroup("julia_matchup", { clear = true }),
@@ -24,7 +23,6 @@ return {
     auto_install = vim.fn.executable "tree-sitter" == 1,
     ensure_installed = { "lua", "c", "cpp", "vim", "bash", "help", "comment", "make" },
     highlight = { disable = { "help" } },
-    indent = { enable = true, disable = { "python" } },
     matchup = { enable = true, disable = { "julia" } },
     textobjects = {
       select = {
