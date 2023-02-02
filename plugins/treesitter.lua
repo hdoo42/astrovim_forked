@@ -1,7 +1,23 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    -- "andymass/vim-matchup",
+    {
+      "andymass/vim-matchup",
+      init = function()
+        vim.g.matchup_matchparen_deferred = 1
+
+        vim.api.nvim_create_autocmd("FileType", {
+          desc = "Disable matchup for julia",
+          group = vim.api.nvim_create_augroup("julia_matchup", { clear = true }),
+          pattern = "julia",
+          callback = function()
+            vim.g.matchup_matchparen_enabled = 0
+            vim.g.matchup_motion_enabled = 0
+            vim.g.matchup_text_obj_enabled = 0
+          end,
+        })
+      end,
+    },
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   opts = {
@@ -9,7 +25,7 @@ return {
     ensure_installed = { "lua", "c", "cpp", "vim", "bash", "help", "comment", "make" },
     highlight = { disable = { "help" } },
     indent = { enable = true, disable = { "python" } },
-    -- matchup = { enable = true, disable = { "julia" } },
+    matchup = { enable = true, disable = { "julia" } },
     textobjects = {
       select = {
         enable = true,

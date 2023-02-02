@@ -54,8 +54,10 @@ local mappings = {
     ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     ["<leader>fM"] = { "<cmd>Telescope media_files<cr>", desc = "Find media" },
-    ["<leader>fp"] = { "<cmd>Telescope project<cr>", desc = "Find projects" },
-
+    ["<leader>fp"] = {
+      function() require("telescope").extensions.project.project { display_type = "full" } end,
+      desc = "Find projects",
+    },
     -- compiler
     ["<leader>m"] = { name = "Compiler" },
     ["<leader>mk"] = {
@@ -107,16 +109,14 @@ local mappings = {
     ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
     ["<leader>mt"] = { "<cmd>TexlabBuild<cr>", desc = "LaTeX" },
     ["<leader>mf"] = { "<cmd>TexlabForward<cr>", desc = "Forward Search" },
-
-    ["<F3>"] = { function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-    ["<F5>"] = { function() require("dap").continue() end, desc = "Continue" },
-    ["<F8>"] = { function() require("dap").step_into() end, desc = "step_into" },
-    ["<F9>"] = { function() require("dap").step_over() end, desc = "step_over" },
-    ["<F10>"] = { function() require("dap").step_out() end, desc = "step_out" },
-    -- fast split
-    ["|"] = { ":vs<CR>" },
-    -- fast add new tabs
-    ["T"] = { "<C-w>T" },
+    ["<leader>r"] = { name = "REPL" },
+    ["<leader>rr"] = { "<Plug>Send", desc = "Send to REPL" },
+    ["<leader>rl"] = { "<Plug>SendLine", desc = "Send line to REPL" },
+    ["<leader>r<cr>"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
+    ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+  },
+  v = {
+    ["<leader>r"] = { "<Plug>Send", desc = "Send to REPL" },
   },
 
   i = {

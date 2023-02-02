@@ -61,6 +61,12 @@ return {
             },
           },
         },
+        project = {
+          base_dirs = {
+            { vim.fn.getenv "GIT_PATH", max_depth = 4 },
+          },
+          search_by = "path",
+        },
       },
       pickers = {
         find_files = {
@@ -69,8 +75,8 @@ return {
       },
     })
   end,
-  config = function(plugin, opts)
-    plugin.default_config(opts)
+  config = function(...)
+    require "plugins.configs.telescope"(...)
     local telescope = require "telescope"
     telescope.load_extension "bibtex"
     telescope.load_extension "file_browser"
