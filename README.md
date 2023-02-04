@@ -13,7 +13,7 @@ git clone https://github.com/AstroNvim/AstroNvim.git ~/.config/nvim
 - Check out to V3 branch (temp)
 
 ```sh
-git checkout -b "v3" "origin/v" && git pull
+git checkout -b "v3" "origin/v3" && git pull
 ```
 
 - Install these user settings
