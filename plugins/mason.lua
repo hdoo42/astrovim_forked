@@ -5,12 +5,9 @@ return {
       ensure_installed = {
         "clangd",
         "marksman",
-        "jsonls",
         "sumneko_lua",
         "taplo",
         "texlab",
-        "tsserver",
-        "yamlls",
       },
     },
   },
