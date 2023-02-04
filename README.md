@@ -13,11 +13,21 @@ git clone https://github.com/AstroNvim/AstroNvim.git ~/.config/nvim
 - Install these user settings
 
 ```sh
-git clone https://code.mehalter.com/AstroNvim_user ~/.config/nvim/lua/user
+git clone https://github.com/ElApostles/astrovim_forked.git ~/.config/nvim/lua/user
 ```
 
-- Initialize AstroVim
+- Options: make symlink to goinfre
 
+```sh
+rm -rf ~/goinfre/.local && mkdir ~/goinfre/.local && ln -shf goinfre/.local ~/.local
+```
+
+- Options: install dependancy ( you can install all of below with [homebrew](https://brew.sh/))
+- lazygit
+- fzf
+- ripgrep
+
+- Initialize AstroVim
 ```sh
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
