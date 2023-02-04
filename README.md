@@ -10,6 +10,12 @@ My personal user config for AstroVim
 git clone https://github.com/AstroNvim/AstroNvim.git ~/.config/nvim
 ```
 
+- Check out to V3 branch (temp)
+
+```sh
+git checkout -b "v3" "origin/v" && git pull
+```
+
 - Install these user settings
 
 ```sh
