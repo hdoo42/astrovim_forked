@@ -28,6 +28,5 @@ rm -rf ~/goinfre/.local && mkdir ~/goinfre/.local && ln -shf goinfre/.local ~/.l
 - ripgrep
 
 - Initialize AstroVim
-```sh
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-```
+
+open any file or just type '(n)vim', plugins & lsp will installed automatically.
