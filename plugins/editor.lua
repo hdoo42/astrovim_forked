@@ -5,7 +5,7 @@ return {
     opts = {
       window = {
         backdrop = 1,
-        width = 0.5,
+        width = function() return math.min(120, vim.o.columns * 0.75) end,
         height = 0.9,
         options = {
           number = false,
@@ -65,6 +65,25 @@ return {
       lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
       lastplace_open_folds = true,
     },
+  },
+  {
+    "mehalter/nvim-spectre", -- move to main repo after https://github.com/nvim-pack/nvim-spectre/pull/104
+    -- "nvim-pack/nvim-spectre",
+    cmd = "Spectre",
+    opts = function()
+      local prefix = "<leader>s"
+      return {
+        mapping = {
+          send_to_qf = { map = prefix .. "q" },
+          replace_cmd = { map = prefix .. "c" },
+          show_option_menu = { map = prefix .. "o" },
+          run_current_replace = { map = prefix .. "C" },
+          run_replace = { map = prefix .. "R" },
+          change_view_mode = { map = prefix .. "v" },
+          resume_last_search = { map = prefix .. "l" },
+        },
+      }
+    end,
   },
   { "junegunn/vim-easy-align", init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end },
   { "machakann/vim-sandwich", init = function() table.insert(astronvim.file_plugins, "vim-sandwich") end },

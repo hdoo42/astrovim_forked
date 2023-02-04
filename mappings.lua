@@ -114,9 +114,32 @@ local mappings = {
     ["<leader>rl"] = { "<Plug>SendLine", desc = "Send line to REPL" },
     ["<leader>r<cr>"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
     ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+    ["<leader>s"] = { name = "Search/Replace" },
+    ["<leader>ss"] = { function() require("spectre").open() end, desc = "Spectre" },
+    ["<leader>sw"] = {
+      function() require("spectre").open_visual { select_word = true } end,
+      desc = "Spectre (current word)",
+    },
+    ["<leader>sf"] = { function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
+    ["<leader>;"] = { name = "AI Assistant" },
+    ["<leader>;;"] = {
+      function()
+        vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
+        astronvim.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
+      end,
+      desc = "Toggle Global",
+    },
+    ["<leader>;b"] = {
+      function()
+        vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
+        astronvim.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
+      end,
+      desc = "Toggle Buffer",
+    },
   },
   v = {
     ["<leader>r"] = { "<Plug>Send", desc = "Send to REPL" },
+    ["<leader>s"] = { function() require("spectre").open_visual() end, desc = "Spectre" },
   },
 
   i = {
