@@ -2,6 +2,8 @@ return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
     local status = require "core.utils.status"
+    opts.statusline[3] = status.component.file_info { filetype = {}, filename = false }
+
     opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
 
     opts.winbar[3] = {
@@ -14,7 +16,11 @@ return {
         surround = false,
         update = "BufEnter",
       },
-      opts.winbar[3],
+      status.component.breadcrumbs {
+        hl = status.hl.get_attributes("winbar", true),
+        prefix = true,
+        padding = { left = 0 },
+      },
     }
     return opts
   end,

@@ -6,6 +6,6 @@ return {
     },
   },
   disabled = {
-    "sumneko_lua",
+    "lua_ls",
   },
 }

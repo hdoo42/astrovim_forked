@@ -4,8 +4,7 @@ return {
     "nvim-telescope/telescope-hop.nvim",
     "nvim-telescope/telescope-bibtex.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    "nvim-telescope/telescope-media-files.nvim",
-    "nvim-telescope/telescope-project.nvim",
+    "ahmedkhalf/project.nvim", -- defined in  ./editor.lua
   },
   opts = function(_, opts)
     local telescope = require "telescope"
@@ -47,10 +46,6 @@ return {
       },
       extensions = {
         bibtex = { context = true, context_fallback = false },
-        media_files = {
-          filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
-          find_cmd = "rg",
-        },
         file_browser = {
           mappings = {
             i = {
@@ -60,12 +55,6 @@ return {
               z = fb_actions.toggle_hidden,
             },
           },
-        },
-        project = {
-          base_dirs = {
-            { vim.fn.getenv "GIT_PATH", max_depth = 4 },
-          },
-          search_by = "path",
         },
       },
       pickers = {
@@ -80,7 +69,6 @@ return {
     local telescope = require "telescope"
     telescope.load_extension "bibtex"
     telescope.load_extension "file_browser"
-    telescope.load_extension "media_files"
-    telescope.load_extension "project"
+    telescope.load_extension "projects"
   end,
 }
