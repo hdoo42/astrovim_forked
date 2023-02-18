@@ -24,11 +24,16 @@ local mappings = {
       desc = "Previous buffer",
     },
     -- better search
-    n = { require("user.utils").better_search "n", desc = "Next search" },
-    N = { require("user.utils").better_search "N", desc = "Previous search" },
+    n = { utils.better_search "n", desc = "Next search" },
+    N = { utils.better_search "N", desc = "Previous search" },
     -- better increment/decrement
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
+    -- kitty navigation
+    ["<C-j>"] = { "<cmd>KittyNavigateDown<cr>" },
+    ["<C-h>"] = { "<cmd>KittyNavigateLeft<cr>" },
+    ["<C-l>"] = { "<cmd>KittyNavigateRight<cr>" },
+    ["<C-k>"] = { "<cmd>KittyNavigateUp<cr>" },
     -- resize with arrows
     ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
     ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
@@ -37,11 +42,20 @@ local mappings = {
 
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
-
     -- buffer controls
     ["<leader>w"] = { "<cmd>wa<cr> <cmd>w<cr>", desc = "Save all buffers" },
     ["<leader>q"] = { "<cmd>qa<cr>", desc = "Quit all buffers" },
-
+    -- buffer switching
+    ["<Tab>"] = {
+      function()
+        if #vim.t.bufs > 1 then
+          require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
+        else
+          astro_utils.notify "No other buffers open"
+        end
+      end,
+      desc = "Switch Buffers",
+    },
     -- vim-sandwich
     ["s"] = "<Nop>",
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
@@ -67,20 +81,14 @@ local mappings = {
       function()
         vim.cmd "silent! write"
         local filename = vim.fn.expand "%:t"
-        utils.async_run(
-          { "compiler", vim.fn.expand "%:p" },
-          function() utils.quick_notification("Compiled " .. filename) end
-        )
+        utils.async_run({ "compiler", vim.fn.expand "%:p" }, function() astro_utils.notify("Compiled " .. filename) end)
       end,
       desc = "Compile",
     },
     ["<leader>ma"] = {
       function()
         vim.notify "Autocompile Started"
-        utils.async_run(
-          { "autocomp", vim.fn.expand "%:p" },
-          function() utils.quick_notification "Autocompile stopped" end
-        )
+        utils.async_run({ "autocomp", vim.fn.expand "%:p" }, function() astro_utils.notify "Autocompile stopped" end)
       end,
       desc = "Auto Compile",
     },
@@ -98,7 +106,7 @@ local mappings = {
           "beamer",
           "-o",
           vim.fn.expand "%:r" .. ".pdf",
-        }, function() utils.quick_notification("Compiled " .. filename) end)
+        }, function() astro_utils.notify("Compiled " .. filename) end)
       end,
       desc = "Compile Beamer",
     },
@@ -124,6 +132,11 @@ local mappings = {
       desc = "Spectre (current word)",
     },
     ["<leader>sf"] = { function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
+    ["<leader>x"] = { name = "Trouble" },
+    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+    ["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+    ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+    ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
     ["<leader>;"] = { name = "AI Assistant" },
     ["<leader>;;"] = {
       function()
@@ -163,7 +176,7 @@ local mappings = {
 
   -- terminal mappings
   t = {
-    ["<C-q>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+    ["<C-BS>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
     ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
   },
 
