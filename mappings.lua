@@ -160,9 +160,9 @@ local mappings = {
 
   i = {
     -- type template string
-    ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
-    -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
+    -- type real tab character
+    ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
     -- date/time input
     ["<c-d>"] = { name = "Date/Time" },

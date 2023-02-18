@@ -40,11 +40,6 @@ return function()
     pattern = { "tpp" },
     callback = function() astronvim.vim_opts { opt = { filetype = "cpp" } } end,
   })
-  vim.api.nvim_create_autocmd("FileType", {
-    desc = "C/C++ tabbing",
-    pattern = { "c", "cpp" },
-    callback = function() astronvim.vim_opts { opt = { shiftwidth = 4, tabstop = 4 } } end,
-  })
 
   require "user.autocmds"
 end

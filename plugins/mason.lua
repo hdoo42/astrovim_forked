@@ -5,7 +5,6 @@ return {
       ensure_installed = {
         "clangd",
         "marksman",
-        "sumneko_lua",
         "taplo",
         "texlab",
       },

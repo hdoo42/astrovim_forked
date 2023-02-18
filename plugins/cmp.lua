@@ -3,6 +3,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-calc",
     "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     "jc-doyle/cmp-pandoc-references",
     "kdheepak/cmp-latex-symbols",
   },
@@ -29,6 +30,7 @@ return {
       },
       sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
+        { name = "nvim_lsp_signature_help", priority = 900 },
         { name = "luasnip", priority = 750 },
         { name = "pandoc_references", priority = 725 },
         { name = "latex_symbols", priority = 700 },
