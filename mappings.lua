@@ -46,16 +46,16 @@ local mappings = {
     ["<leader>w"] = { "<cmd>wa<cr> <cmd>w<cr>", desc = "Save all buffers" },
     ["<leader>q"] = { "<cmd>qa<cr>", desc = "Quit all buffers" },
     -- buffer switching
-    ["<Tab>"] = {
-      function()
-        if #vim.t.bufs > 1 then
-          require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
-        else
-          astro_utils.notify "No other buffers open"
-        end
-      end,
-      desc = "Switch Buffers",
-    },
+    -- ["<Tab>"] = {
+    --   function()
+    --     if #vim.t.bufs > 1 then
+    --       require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
+    --     else
+    --       astro_utils.notify "No other buffers open"
+    --     end
+    --   end,
+    --   desc = "Switch Buffers",
+    -- },
     -- vim-sandwich
     ["s"] = "<Nop>",
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
