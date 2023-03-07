@@ -23,18 +23,15 @@ return {
         },
       },
       on_open = function() -- disable diagnostics and indent blankline
-        vim.g.diagnostics_enabled_old = vim.g.diagnostics_enabled
-        vim.g.status_diagnostics_enabled_old = vim.g.status_diagnostics_enabled
-        vim.g.diagnostics_enabled = false
-        vim.g.status_diagnostics_enabled = false
-        vim.diagnostic.config(require("core.utils.lsp").diagnostics["off"])
+        vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
+        vim.g.diagnostics_mode = 0
+        vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[0])
         vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
         vim.g.indent_blankline_enabled = false
       end,
       on_close = function() -- restore diagnostics and indent blankline
-        vim.g.diagnostics_enabled = vim.g.diagnostics_enabled_old
-        vim.g.status_diagnostics_enabled = vim.g.status_diagnostics_enabled_old
-        vim.diagnostic.config(require("core.utils.lsp").diagnostics[vim.g.diagnostics_enabled and "on" or "off"])
+        vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
+        vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
         vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
       end,
     },
@@ -55,15 +52,6 @@ return {
         typescript = { template = { annotation_convention = "tsdoc" } },
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
-    },
-  },
-  {
-    "ethanholz/nvim-lastplace",
-    event = "BufRead",
-    opts = {
-      lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-      lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-      lastplace_open_folds = true,
     },
   },
   {
@@ -103,7 +91,16 @@ return {
       }
     end,
   },
-  { "junegunn/vim-easy-align", init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end },
-  { "machakann/vim-sandwich", init = function() table.insert(astronvim.file_plugins, "vim-sandwich") end },
-  { "wakatime/vim-wakatime", init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
+  {
+    "junegunn/vim-easy-align",
+    init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
+  },
+  {
+    "machakann/vim-sandwich",
+    init = function() table.insert(astronvim.file_plugins, "vim-sandwich") end,
+  },
+  {
+    "wakatime/vim-wakatime",
+    init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
+  },
 }
