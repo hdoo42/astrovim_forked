@@ -73,7 +73,6 @@ local mappings = {
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
-
     -- neogen
     ["<leader>a"] = { name = "󰏫 Annotate" },
     ["<leader>a<cr>"] = {
@@ -216,7 +215,6 @@ local mappings = {
     ["<c-t>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
     ["<c-t>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
-
   -- terminal mappings
   t = {
     ["<C-BS>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },

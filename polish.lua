@@ -35,11 +35,5 @@ return function()
     },
   }
 
-  vim.api.nvim_create_autocmd("FileType", {
-    desc = "Set filetype",
-    pattern = { "tpp" },
-    callback = function() astronvim.vim_opts { opt = { filetype = "cpp" } } end,
-  })
-
   require "user.autocmds"
 end
