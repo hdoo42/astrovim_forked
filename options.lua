@@ -9,7 +9,7 @@ return {
     conceallevel = 0, -- so that `` is visible in markdown files
     hlsearch = true, -- highlight all matches on previous search pattern
     showmode = true,
-    showtabline = 2, -- always show tabs
+    --showtabline = 2, -- always show tabs
     relativenumber = true, -- set relative numbered lines
     numberwidth = 4, -- set number column width to 4 {default 4}
 
