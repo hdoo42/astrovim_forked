@@ -6,8 +6,6 @@ return {
       ensure_installed = {
         "clangd",
         "marksman",
-        "taplo",
-        "texlab",
       },
     },
   },
@@ -15,7 +13,9 @@ return {
     "jay-babu/mason-null-ls.nvim",
     opts = {
       ensure_installed = {
+        "rust-analyzer",
         "shellcheck",
+        "rustfmt",
         "stylua",
         "black",
       },
