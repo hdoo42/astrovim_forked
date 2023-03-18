@@ -1,6 +1,6 @@
 return {
   format_on_save = {
-    enabled = true, -- enable format on save
+    enabled = false, -- enable format on save
     ignore_filetypes = { -- disable format on save for specified filetypes
       "c",
     },
