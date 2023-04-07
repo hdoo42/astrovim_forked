@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-calc",
     "hrsh7th/cmp-emoji",
     "jc-doyle/cmp-pandoc-references",
@@ -28,7 +29,8 @@ return {
         },
       },
       sources = cmp.config.sources {
-        { name = "nvim_lsp", priority = 1000 },
+        { name = "nvim_lsp_signature_help", priority = 1000 },
+        { name = "nvim_lsp", priority = 900 },
         { name = "luasnip", priority = 750 },
         { name = "pandoc_references", priority = 725 },
         { name = "latex_symbols", priority = 700 },
