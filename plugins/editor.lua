@@ -48,7 +48,7 @@ return {
     opts = {
       snippet_engine = "luasnip",
       languages = {
-        lua = { template = { annotation_convention = "ldoc" } },
+        lua = { template = { annotation_convention = "emmylua" } },
         typescript = { template = { annotation_convention = "tsdoc" } },
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
@@ -64,10 +64,15 @@ return {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
     opts = {
-      manual_mode = true,
-      ignore_lsp = { "lua_ls" },
+      ignore_lsp = { "lua_ls", "julials" },
     },
     config = function(_, opts) require("project_nvim").setup(opts) end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "User AstroFile",
+    cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+    opts = {},
   },
   {
     "folke/trouble.nvim",
