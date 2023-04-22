@@ -37,6 +37,16 @@ return {
     },
   },
   {
+    "echasnovski/mini.move",
+    keys = {
+      { "<M-l>", mode = { "n", "v" } },
+      { "<M-k>", mode = { "n", "v" } },
+      { "<M-j>", mode = { "n", "v" } },
+      { "<M-h>", mode = { "n", "v" } },
+    },
+    config = function(_, opts) require("mini.move").setup(opts) end,
+  },
+  {
     "arsham/indent-tools.nvim",
     dependencies = { "arsham/arshlib.nvim" },
     event = "User AstroFile",
@@ -48,19 +58,31 @@ return {
     opts = {
       snippet_engine = "luasnip",
       languages = {
-        lua = { template = { annotation_convention = "ldoc" } },
+        lua = { template = { annotation_convention = "emmylua" } },
         typescript = { template = { annotation_convention = "tsdoc" } },
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
   },
   {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    ft = "markdown",
+    opts = {},
+  },
+  {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
     opts = {
-      ignore_lsp = { "lua_ls" },
+      ignore_lsp = { "lua_ls", "julials" },
     },
     config = function(_, opts) require("project_nvim").setup(opts) end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "User AstroFile",
+    cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+    opts = {},
   },
   {
     "folke/trouble.nvim",
@@ -91,6 +113,7 @@ return {
       }
     end,
   },
+  { "willothy/flatten.nvim", lazy = false, priority = 1001, opts = { window = { open = "vsplit" } } },
   { "junegunn/vim-easy-align", event = "User AstroFile" },
   { "machakann/vim-sandwich", event = "User AstroFile" },
   --{ "wakatime/vim-wakatime", event = "User AstroFile" },
