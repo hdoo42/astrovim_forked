@@ -15,6 +15,7 @@ return {
         runOnSave = true, -- Check for errors after save
         maxErrorsToShow = 5, -- Only show 5 errors
         active = true, -- Optional, can be set to false to deactivate plugin
+      }
   },
   {
     "giusgad/pets.nvim",
