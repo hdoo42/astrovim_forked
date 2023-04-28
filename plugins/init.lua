@@ -13,9 +13,10 @@ return {
     config = function()
       require("norminette").setup {
         runOnSave = true, -- Check for errors after save
-        maxErrorsToShow = 5, -- Only show 5 errors
+        maxErrorsToShow = 10, -- Only show 5 errors
         active = true, -- Optional, can be set to false to deactivate plugin
       }
+    end,
   },
   {
     "giusgad/pets.nvim",
