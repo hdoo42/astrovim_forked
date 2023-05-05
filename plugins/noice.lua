@@ -6,7 +6,7 @@ return {
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = require("astronvim.utils").list_insert_unique(
           opts.ensure_installed,
-          { "bash", "markdown", "markdown_inline", "regex", "vim" }
+          { "bash", "markdown", "markdown_inline", "regex", "vim", "html", "css", "javascript" }
         )
       end
     end,
