@@ -1,5 +1,4 @@
 return function()
-  vim.lsp.buf.format { timeout_ms = 2000 }
   vim.cmd [[
   fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from

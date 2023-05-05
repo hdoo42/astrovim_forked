@@ -81,4 +81,7 @@ return {
       }
     end,
   },
+  {
+    "lukas-reineke/lsp-format.nvim",
+  },
 }
