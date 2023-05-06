@@ -9,7 +9,7 @@ return {
   },
   opts = {
     auto_install = vim.fn.executable "tree-sitter" == 1,
-    ensure_installed = {},
+    ensure_installed = { "html", "css", "javascript", "typescript" },
     highlight = { disable = { "help" } },
     matchup = { enable = true },
     rainbow = { enable = true },
