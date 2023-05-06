@@ -2,6 +2,14 @@ return {
   { "42Paris/42header", lazy = false },
   { "github/copilot.vim", lazy = false },
   {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup {}
+      local on_attach = function(client) require("lsp-format").on_attach(client) end
+      require("lspconfig").gopls.setup { on_attach = on_attach }
+    end,
+  },
+  {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } }
@@ -80,8 +88,5 @@ return {
         },
       }
     end,
-  },
-  {
-    "lukas-reineke/lsp-format.nvim",
   },
 }

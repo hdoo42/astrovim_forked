@@ -15,7 +15,6 @@ return {
         "css-lsp",
         "html-lsp",
         "prettierd",
-        "stylelint",
       },
       handlers = {
         taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
