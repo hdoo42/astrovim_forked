@@ -4,9 +4,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "css-lsp",
         "rome",
-        "html-lsp",
       },
     },
   },
@@ -14,6 +12,8 @@ return {
     "jay-babu/mason-null-ls.nvim",
     opts = {
       ensure_installed = {
+        "css-lsp",
+        "html-lsp",
         "prettierd",
         "stylelint",
       },
