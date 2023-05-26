@@ -15,17 +15,17 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } }
     end,
   },
-  {
-    "giusgad/pets.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
-    config = function()
-      require("pets").setup {
-        row = 6,
-        default_pet = "dog",
-      }
-    end,
-  },
+  -- {
+  --   "giusgad/pets.nvim",
+  --   lazy = false,
+  --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
+  --   config = function()
+  --     require("pets").setup {
+  --       row = 6,
+  --       default_pet = "dog",
+  --     }
+  --   end,
+  -- },
   {
     "simrat39/rust-tools.nvim",
     config = function()
