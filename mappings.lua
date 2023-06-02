@@ -163,19 +163,21 @@ local mappings = {
   },
 
   i = {
+    -- signature help, fails silently so attach always
+    ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     -- type real tab character
     ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
     -- date/time input
-    ["<c-t>"] = { desc = "󰃰 Date/Time" },
-    ["<c-t>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
-    ["<c-t>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
-    ["<c-t>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
-    ["<c-t>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
-    ["<c-t>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
-    ["<c-t>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
+    ["<C-t>"] = { desc = "󰃰 Date/Time" },
+    ["<C-t>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
+    ["<C-t>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
+    ["<C-t>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
+    ["<C-t>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
+    ["<C-t>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
+    ["<C-t>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
   -- terminal mappings
   t = {
