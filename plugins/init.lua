@@ -20,11 +20,11 @@ return {
       "mg979/vim-visual-multi",
       lazy = false,
       config = function()
-        vim.g.VM_leader = { default = "space", visual = "space" }
-        vim.g.VM_Mono_hl = "DiffText"
-        vim.g.VM_Extend_hl = "DiffAdd"
+        vim.g.VM_leader    = { default = "space", visual = "space" }
+        vim.g.VM_Mono_hl   = "Visual"
+        vim.g.VM_Extend_hl = "Visual"
         vim.g.VM_Cursor_hl = "Visual"
-        vim.g.VM_Insert_hl = "DiffChange"
+        vim.g.VM_Insert_hl = "Visual"
       end,
     },
   },
