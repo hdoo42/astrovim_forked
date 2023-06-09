@@ -15,6 +15,19 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } }
     end,
   },
+  {
+    {
+      "mg979/vim-visual-multi",
+      lazy = false,
+      config = function()
+        vim.g.VM_leader = { default = "space", visual = "space" }
+        vim.g.VM_Mono_hl = "DiffText"
+        vim.g.VM_Extend_hl = "DiffAdd"
+        vim.g.VM_Cursor_hl = "Visual"
+        vim.g.VM_Insert_hl = "DiffChange"
+      end,
+    },
+  },
   -- {
   --   "giusgad/pets.nvim",
   --   lazy = false,
