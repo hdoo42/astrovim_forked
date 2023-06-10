@@ -13,6 +13,7 @@ return {
     highlight = { disable = { "help" } },
     matchup = { enable = true },
     rainbow = { enable = true },
+    indent = { true },
     textobjects = {
       select = {
         enable = true,
