@@ -8,7 +8,8 @@ local mappings = {
     ["<C-Right>"] = false,
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
-    ["<C-s>"] = false,
+    ["<M-s>"] = { "<Plug>(leap-forward-to)", desc = "easy jump" },
+    ["<M-S>"] = { "<Plug>(leap-backward-to)", desc = "easy jump" },
     ["q:"] = ":",
     ["Y"] = { '"*y', desc = "yank with clipboad" },
 
@@ -172,7 +173,7 @@ local mappings = {
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     -- type real tab character
-    ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
+    -- ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
     -- date/time input
     ["<C-t>"] = { desc = "󰃰 Date/Time" },
