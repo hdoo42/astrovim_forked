@@ -53,7 +53,13 @@ local mappings = {
     -- },
     -- vim-sandwich
     ["s"] = "<Nop>",
-    ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+    -- ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+
+    -- Neorg plugin mappings
+    ["<leader>n"] = { name = "Neorg" },
+    ["<leader>ni"] = { "<cmd>Neorg index<cr>" },
+    ["<leader>nj"] = { "<cmd>Neorg journal today<cr>" },
+
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },

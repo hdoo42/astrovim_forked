@@ -16,17 +16,39 @@ return {
     end,
   },
   {
-    {
-      "mg979/vim-visual-multi",
-      lazy = false,
-      config = function()
-        vim.g.VM_leader    = { default = "space", visual = "space" }
-        vim.g.VM_Mono_hl   = "Visual"
-        vim.g.VM_Extend_hl = "Visual"
-        vim.g.VM_Cursor_hl = "Visual"
-        vim.g.VM_Insert_hl = "Visual"
-      end,
-    },
+    "mg979/vim-visual-multi",
+    lazy = false,
+    config = function()
+      vim.g.VM_leader = { default = "space", visual = "space" }
+      vim.g.VM_Mono_hl = "Visual"
+      vim.g.VM_Extend_hl = "Visual"
+      vim.g.VM_Cursor_hl = "Visual"
+      vim.g.VM_Insert_hl = "Visual"
+    end,
+  },
+  {
+    "nvim-neorg/neorg",
+    event = "VeryLazy",
+    build = ":Neorg sync-parsers",
+    dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.keybinds"] = {},
+          ["core.integrations.telescope"] = {},
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              default_workspace = "notes",
+              workspaces = {
+                notes = "~/.config/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
   },
   -- {
   --   "giusgad/pets.nvim",

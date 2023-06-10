@@ -15,6 +15,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "conceal level to 2",
+  group = vim.api.nvim_create_augroup("neorg coneal", { clear = true }),
+  pattern = { "norg" },
+  callback = function() vim.opt.conceallevel = 2 end,
+})
+
 vim.api.nvim_create_autocmd("User", {
   desc = "Auto hide tabline",
   group = vim.api.nvim_create_augroup("autohide_tabline", { clear = true }),
