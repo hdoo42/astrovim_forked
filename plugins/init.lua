@@ -28,7 +28,8 @@ return {
   },
   {
     "nvim-neorg/neorg",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    lazy = false,
     build = ":Neorg sync-parsers",
     dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
     config = function()
