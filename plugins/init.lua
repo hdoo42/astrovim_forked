@@ -1,6 +1,5 @@
 return {
   { "42Paris/42header", lazy = false },
-  { "github/copilot.vim", lazy = false },
   {
     "lukas-reineke/lsp-format.nvim",
     config = function()
@@ -44,7 +43,10 @@ return {
             config = {
               highlights = {
                 links = {
-                  file = "+type",
+                  file = "+@text.uri",
+                },
+                definitions = {
+                  content = "+text",
                 },
               },
             },
