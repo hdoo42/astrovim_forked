@@ -5,6 +5,4 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.motion.nvim-spider" },
-  { import = "astrocommunity.comment.mini-comment" },
 }
