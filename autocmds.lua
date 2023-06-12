@@ -5,6 +5,11 @@ vim.api.nvim_create_autocmd("VimLeave", {
   callback = function() vim.fn.jobstart { "autocomp", vim.fn.expand "%:p", "stop" } end,
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "*.tpp" },
+  callback = function() vim.opt_local.filetype = "cpp" end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Enable wrap and spell for text like documents",
   group = vim.api.nvim_create_augroup("auto_spell", { clear = true }),
