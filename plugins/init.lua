@@ -40,6 +40,15 @@ return {
           ["core.integrations.telescope"] = {},
           ["core.integrations.treesitter"] = {},
           ["core.integrations.nvim-cmp"] = {},
+          ["core.highlights"] = {
+            config = {
+              highlights = {
+                links = {
+                  file = "+type",
+                },
+              },
+            },
+          },
           ["core.completion"] = {
             config = {
               engine = "nvim-cmp",
