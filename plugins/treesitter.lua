@@ -6,24 +6,14 @@ return {
       "andymass/vim-matchup",
       init = function() vim.g.matchup_matchparen_deferred = 1 end,
     },
-    {
-      "HiPhish/nvim-ts-rainbow2",
-      config = function()
-        vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained" }, {
-          callback = function()
-            vim.cmd.TSDisable "rainbow"
-            vim.cmd.TSEnable "rainbow"
-          end,
-        })
-      end,
-    },
   },
   opts = {
     auto_install = vim.fn.executable "tree-sitter" == 1,
-    ensure_installed = { "lua", "c", "cpp", "vim", "bash", "comment", "make", "rust" },
+    ensure_installed = { "html", "css", "javascript", "typescript", "norg" },
     highlight = { disable = { "help" } },
     matchup = { enable = true },
     rainbow = { enable = true },
+    indent = { true },
     textobjects = {
       select = {
         enable = true,

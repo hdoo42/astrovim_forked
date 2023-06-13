@@ -44,7 +44,7 @@ return {
       { "<M-j>", mode = { "n", "v" } },
       { "<M-h>", mode = { "n", "v" } },
     },
-    config = function(_, opts) require("mini.move").setup(opts) end,
+    opts = {},
   },
   {
     "arsham/indent-tools.nvim",
@@ -70,14 +70,14 @@ return {
     ft = "markdown",
     opts = {},
   },
-  {
-    "ahmedkhalf/project.nvim",
-    event = "VeryLazy",
-    opts = {
-      ignore_lsp = { "lua_ls", "julials" },
-    },
-    config = function(_, opts) require("project_nvim").setup(opts) end,
-  },
+  -- {
+  --   "ahmedkhalf/project.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     ignore_lsp = { "lua_ls", "julials" },
+  --   },
+  --   config = function(_, opts) require("project_nvim").setup(opts) end,
+  -- },
   {
     "folke/todo-comments.nvim",
     event = "User AstroFile",
@@ -113,7 +113,7 @@ return {
       }
     end,
   },
-  { "willothy/flatten.nvim", lazy = false, priority = 1001, opts = { window = { open = "vsplit" } } },
+  { "willothy/flatten.nvim", lazy = false, priority = 1001, opts = { window = { open = "alternate" } } },
   { "junegunn/vim-easy-align", event = "User AstroFile" },
   { "machakann/vim-sandwich", event = "User AstroFile" },
   { "wakatime/vim-wakatime", event = "User AstroFile" },

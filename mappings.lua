@@ -8,7 +8,8 @@ local mappings = {
     ["<C-Right>"] = false,
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
-    ["<C-s>"] = false,
+    ["<M-s>"] = { "<Plug>(leap-forward-to)", desc = "easy jump" },
+    ["<M-S>"] = { "<Plug>(leap-backward-to)", desc = "easy jump" },
     ["q:"] = ":",
     ["Y"] = { '"*y', desc = "yank with clipboad" },
 
@@ -52,7 +53,13 @@ local mappings = {
     -- },
     -- vim-sandwich
     ["s"] = "<Nop>",
-    ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+    -- ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+
+    -- Neorg plugin mappings
+    ["<leader>n"] = { name = "Neorg" },
+    ["<leader>ni"] = { "<cmd>Neorg index<cr>" },
+    ["<leader>nj"] = { "<cmd>Neorg journal today<cr>" },
+
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
@@ -64,6 +71,10 @@ local mappings = {
     ["<leader>at"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" },
     ["<leader>aF"] = { function() require("neogen").generate { type = "file" } end, desc = "File" },
     -- telescope plugin mappings
+    ["<leader>fx"] = {
+      function() require("telescope").extensions.live_grep_args.live_grep_args() end,
+      desc = "Find words (args)",
+    },
     ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
@@ -135,7 +146,7 @@ local mappings = {
       function() require("spectre").open_visual { select_word = true } end,
       desc = "Spectre (current word)",
     },
-    ["<leader>x"] = { desc = "裂Trouble" },
+    ["<leader>x"] = { desc = "󰒡 Trouble" },
     ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
     ["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
     ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
@@ -163,19 +174,21 @@ local mappings = {
   },
 
   i = {
+    -- signature help, fails silently so attach always
+    ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     -- type real tab character
-    ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
+    -- ["<C-l>"] = { "<C-V><Tab>", desc = "Insert Tab" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
     -- date/time input
-    ["<c-t>"] = { desc = "󰃰 Date/Time" },
-    ["<c-t>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
-    ["<c-t>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
-    ["<c-t>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
-    ["<c-t>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
-    ["<c-t>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
-    ["<c-t>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
+    ["<C-t>"] = { desc = "󰃰 Date/Time" },
+    ["<C-t>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
+    ["<C-t>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
+    ["<C-t>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
+    ["<C-t>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
+    ["<C-t>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
+    ["<C-t>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
   -- terminal mappings
   t = {

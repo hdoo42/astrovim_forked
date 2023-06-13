@@ -11,14 +11,27 @@ return {
       headlines = true,
       mason = true,
       neotree = true,
+      noice = true,
       notify = true,
       octo = true,
       sandwich = true,
       semantic_tokens = true,
       symbols_outline = true,
       telescope = true,
-      ts_rainbow2 = true,
       which_key = true,
     },
+    custom_highlights = function(colors)
+      return {
+        -- disable italics  for treesitter highlights
+        Visual = { bg = U.darken(C.teal, 0.18, C.base) },
+        TabLineFill = { link = "StatusLine" },
+        ["@parameter"] = { style = {} },
+        ["@type.builtin"] = { style = {} },
+        ["@namespace"] = { style = {} },
+        ["@text.uri"] = { style = { "underline" } },
+        ["@tag.attribute"] = { style = {} },
+        ["@tag.attribute.tsx"] = { style = {} },
+      }
+    end,
   },
 }

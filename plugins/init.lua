@@ -1,6 +1,13 @@
 return {
   { "42Paris/42header", lazy = false },
-  { "github/copilot.vim", lazy = false },
+  {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup {}
+      local on_attach = function(client) require("lsp-format").on_attach(client) end
+      require("lspconfig").gopls.setup { on_attach = on_attach }
+    end,
+  },
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -8,27 +15,70 @@ return {
     end,
   },
   {
-    "hardyrafael17/norminette42.nvim",
+    "mg979/vim-visual-multi",
     lazy = false,
     config = function()
-      require("norminette").setup {
-        runOnSave = true, -- Check for errors after save
-        maxErrorsToShow = 10, -- Only show 5 errors
-        active = true, -- Optional, can be set to false to deactivate plugin
-      }
+      vim.g.VM_leader = { default = "space", visual = "space" }
+      vim.g.VM_Mono_hl = "Visual"
+      vim.g.VM_Extend_hl = "Visual"
+      vim.g.VM_Cursor_hl = "Visual"
+      vim.g.VM_Insert_hl = "Visual"
     end,
   },
   {
-    "giusgad/pets.nvim",
+    "nvim-neorg/neorg",
+    -- event = "VeryLazy",
     lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
+    build = ":Neorg sync-parsers",
+    dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
     config = function()
-      require("pets").setup {
-        row = 6,
-        default_pet = "dog",
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.integrations.telescope"] = {},
+          ["core.integrations.treesitter"] = {},
+          ["core.integrations.nvim-cmp"] = {},
+          ["core.highlights"] = {
+            config = {
+              highlights = {
+                links = {
+                  file = "+@text.uri",
+                },
+                definitions = {
+                  content = "+text",
+                },
+              },
+            },
+          },
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              default_workspace = "notes",
+              workspaces = {
+                notes = "~/.config/notes",
+              },
+            },
+          },
+        },
       }
     end,
   },
+  -- {
+  --   "giusgad/pets.nvim",
+  --   lazy = false,
+  --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
+  --   config = function()
+  --     require("pets").setup {
+  --       row = 6,
+  --       default_pet = "dog",
+  --     }
+  --   end,
+  -- },
   {
     "simrat39/rust-tools.nvim",
     config = function()

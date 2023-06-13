@@ -9,7 +9,8 @@ return {
     conceallevel = 0, -- so that `` is visible in markdown files
     hlsearch = true, -- highlight all matches on previous search pattern
     showmode = true,
-    --showtabline = 2, -- always show tabs
+    showtabline = 2, -- always show tabs
+    number = true,
     relativenumber = true, -- set relative numbered lines
     numberwidth = 4, -- set number column width to 4 {default 4}
 
@@ -21,7 +22,7 @@ return {
     list = true, -- show whitespace characters
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     showbreak = "↪ ",
-    showtabline = 1,
+    showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
     spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
     swapfile = false,
     thesaurus = vim.fn.expand "~/.config/nvim/lua/user/spell/mthesaur.txt",

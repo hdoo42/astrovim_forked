@@ -3,22 +3,13 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = {
-        "clangd",
-        "marksman",
-      },
+      ensure_installed = {},
     },
   },
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
-      ensure_installed = {
-        "rust-analyzer",
-        "shellcheck",
-        "rustfmt",
-        "stylua",
-        "black",
-      },
+      ensure_installed = {},
       handlers = {
         taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
       },
@@ -27,10 +18,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = {
-        "bash",
-        "cppdbg",
-      },
+      ensure_installed = {},
     },
   },
 }
