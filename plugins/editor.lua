@@ -22,17 +22,20 @@ return {
           laststatus = 0,
         },
       },
-      on_open = function() -- disable diagnostics and indent blankline
+      on_open = function() -- disable diagnostics, indent blankline, and winbar
         vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
-        vim.g.diagnostics_mode = 0
-        vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[0])
         vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
+        vim.g.winbar_old = vim.wo.winbar
+        vim.g.diagnostics_mode = 0
         vim.g.indent_blankline_enabled = false
-      end,
-      on_close = function() -- restore diagnostics and indent blankline
-        vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
+        vim.wo.winbar = nil
         vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      end,
+      on_close = function() -- restore diagnostics, indent blankline, and winbar
+        vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
         vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
+        vim.wo.winbar = vim.g.winbar_old
+        vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
       end,
     },
   },
@@ -101,6 +104,7 @@ return {
     opts = function()
       local prefix = "<leader>s"
       return {
+        open_cmd = "new",
         mapping = {
           send_to_qf = { map = prefix .. "q" },
           replace_cmd = { map = prefix .. "c" },
@@ -115,6 +119,18 @@ return {
   },
   { "willothy/flatten.nvim", lazy = false, priority = 1001, opts = { window = { open = "alternate" } } },
   { "junegunn/vim-easy-align", event = "User AstroFile" },
-  { "machakann/vim-sandwich", event = "User AstroFile" },
+  {
+    "echasnovski/mini.surround",
+    keys = {
+      { "sa", desc = "Add surrounding", mode = { "n", "v" } },
+      { "sd", desc = "Delete surrounding" },
+      { "sf", desc = "Find right surrounding" },
+      { "sF", desc = "Find left surrounding" },
+      { "sh", desc = "Highlight surrounding" },
+      { "sr", desc = "Replace surrounding" },
+      { "sn", desc = "Update `MiniSurround.config.n_lines`" },
+    },
+    opts = { n_lines = 200 },
+  },
   { "wakatime/vim-wakatime", event = "User AstroFile" },
 }
