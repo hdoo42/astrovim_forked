@@ -63,6 +63,7 @@ local mappings = {
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+    ["<leader>pa"] = { function() require("lazy").update{ show = false } end, desc = "update sliently" },
     -- neogen
     ["<leader>a"] = { desc = "󰏫 Annotate" },
     ["<leader>a<cr>"] = { function() require("neogen").generate() end, desc = "Current" },
