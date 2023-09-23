@@ -2,6 +2,20 @@ return {
   "catppuccin/nvim",
   name = "catppuccin",
   opts = {
+      styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = { "italic"},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {"italic"},
+        types = {"italic"},
+        operators = {},
+    },
     dim_inactive = { enabled = true, percentage = 0.25 },
     integrations = {
       alpha = false,

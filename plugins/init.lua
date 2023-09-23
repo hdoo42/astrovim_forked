@@ -1,4 +1,6 @@
 return {
+
+  { "windwp/nvim-ts-autotag", lazy = false },
   { "42Paris/42header", lazy = false },
   {
     "lukas-reineke/lsp-format.nvim",

@@ -20,6 +20,7 @@ return {
     opts = {
       auto_install = vim.fn.executable "tree-sitter" == 1,
       matchup = { enable = true },
+      autotag = { enable = true },
     },
   },
 }
