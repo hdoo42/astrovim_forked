@@ -1,4 +1,7 @@
 return {
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   { "windwp/nvim-ts-autotag" },
   { "42Paris/42header", lazy = false },
   {

@@ -32,5 +32,6 @@ return {
   },
   g = {
     resession_enabled = true,
+    skip_ts_context_commentstring_module = true,
   },
 }
