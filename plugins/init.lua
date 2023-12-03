@@ -2,8 +2,13 @@ return {
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function() require("nordic").load() end,
+  },
   { "windwp/nvim-ts-autotag" },
-  { "42Paris/42header", lazy = false },
   {
     "lukas-reineke/lsp-format.nvim",
     config = function()
@@ -72,15 +77,4 @@ return {
       }
     end,
   },
-  -- {
-  --   "giusgad/pets.nvim",
-  --   lazy = false,
-  --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
-  --   config = function()
-  --     require("pets").setup {
-  --       row = 6,
-  --       default_pet = "dog",
-  --     }
-  --   end,
-  -- },
 }
