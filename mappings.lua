@@ -60,6 +60,16 @@ local mappings = {
     ["<leader>ni"] = { "<cmd>Neorg index<cr>" },
     ["<leader>nj"] = { "<cmd>Neorg journal today<cr>" },
 
+    ["<leader>Z"] = {
+      function()
+        local fullPath = vim.fn.expand "%:p"
+        if type(fullPath) == "table" then fullPath = table.concat(fullPath, "") end
+        local pdfFile = string.gsub(fullPath, "%.tex", "%.pdf")
+        print(pdfFile)
+        vim.fn.system("zathura '" .. pdfFile .. "' &")
+      end,
+      desc = "open Zathura",
+    },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
