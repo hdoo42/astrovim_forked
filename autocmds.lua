@@ -1,9 +1,9 @@
-vim.api.nvim_create_autocmd("VimLeave", {
-  desc = "Stop running auto compiler on leave",
-  group = vim.api.nvim_create_augroup("quit_autocomp", { clear = true }),
-  pattern = "*",
-  callback = function() vim.fn.jobstart { "autocomp", vim.fn.expand "%:p", "stop" } end,
-})
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   desc = "Stop running auto compiler on leave",
+--   group = vim.api.nvim_create_augroup("quit_autocomp", { clear = true }),
+--   pattern = "*",
+--   callback = function() vim.fn.jobstart { "autocomp", vim.fn.expand "%:p", "stop" } end,
+-- })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = { "*.tpp" },
