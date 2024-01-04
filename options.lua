@@ -5,7 +5,7 @@ return {
     expandtab = false,
     backup = false, -- creates a backup file
     clipboard = "", -- override to default clipboard settings
-    cmdheight = 2, -- more space in the neovim command line for displaying messages
+    cmdheight = 1, -- more space in the neovim command line for displaying messages
     conceallevel = 0, -- so that `` is visible in markdown files
     hlsearch = true, -- highlight all matches on previous search pattern
     showmode = true,
