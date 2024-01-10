@@ -40,6 +40,7 @@ local mappings = {
     -- buffer controls
     ["<leader>w"] = { "<cmd>wa<cr> <cmd>w<cr>", desc = "Save all buffers" },
     ["<leader>q"] = { "<cmd>qa<cr>", desc = "Quit all buffers" },
+
     -- buffer switching
     -- ["<Tab>"] = {
     --   function()
