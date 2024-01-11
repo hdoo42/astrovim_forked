@@ -3,18 +3,14 @@
     "prefix": ["ctest"],
     "body": [
       "#[cfg(test)]",
-      "use super::*",
       "mod tests {",
-      "#[test]",
+      "    use super::*;",
+      "    #[test]",
       "    fn ${1:name}(){",
-      "    ${2:unimplemented!();}",
+      "        ${2:unimplemented!();}",
+      "    }",
       "}"
     ],
     "description": "#[cfg(test)]"
-  },
-  "test": {
-    "prefix": "test",
-    "body": ["#[test]", "fn ${1:name}() {", "    ${2:unimplemented!();}", "}"],
-    "description": "#[test]"
   }
 }
