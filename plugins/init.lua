@@ -12,6 +12,11 @@ return {
       }
     end,
   },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^3", -- Recommended
+    ft = { "rust" },
+  },
   { "ggandor/leap.nvim", lazy = false },
   {
     "L3MON4D3/LuaSnip",
