@@ -1,4 +1,17 @@
 return {
+  {
+    "Wansmer/treesj",
+    keys = {
+      "<space>m",
+      "J",
+      "<space>s",
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesj").setup {--[[ your config ]]
+      }
+    end,
+  },
   { "ggandor/leap.nvim", lazy = false },
   {
     "L3MON4D3/LuaSnip",
