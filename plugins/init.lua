@@ -30,4 +30,15 @@ return {
       }
     end,
   },
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+    branch = "master",
+    config = function()
+      vim.g.VM_Mono_hl = "DiffText"
+      vim.g.VM_Extend_hl = "DiffAdd"
+      vim.g.VM_Cursor_hl = "Visual"
+      vim.g.VM_Insert_hl = "DiffChange"
+    end,
+  },
 }
