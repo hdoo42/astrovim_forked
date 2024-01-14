@@ -85,27 +85,6 @@ mappings = {
     ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
     ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
 
-    ["<leader>r"] = { desc = "Rust" },
-    ["<leader>rr"] = { function() vim.cmd.RustLsp "runnables" end, desc = "runnables" },
-    ["<leader>re"] = { function() vim.cmd.RustLsp "expandMacro" end, desc = "expandMacro" },
-    ["<leader>ru"] = { function() vim.cmd.RustLsp("moveItem", "up") end, desc = "moveItem" },
-    ["<leader>rd"] = { function() vim.cmd.RustLsp("moveItem", "down") end, desc = "moveItem" },
-    ["<leader>rha"] = { function() vim.cmd.RustLsp("hover", "action") end, desc = "hover" },
-    ["<leader>rhr"] = { function() vim.cmd.RustLsp("hover", "range") end, desc = "hover" },
-    ["<leader>rx"] = { function() vim.cmd.RustLsp "explainError" end, desc = "explainError" },
-    ["<leader>rD"] = { function() vim.cmd.RustLsp "renderDiagnostic" end, desc = "renderDiagnostic" },
-    ["<leader>ro"] = { function() vim.cmd.RustLsp "openCargo" end, desc = "openCargo" },
-    ["<leader>rp"] = { function() vim.cmd.RustLsp "parentModule" end, desc = "parentModule" },
-    ["<leader>rj"] = { function() vim.cmd.RustLsp "joinLines" end, desc = "joinLines" },
-    ["<leader>rs"] = { function() vim.cmd.RustLsp("ssr", "query") end, desc = "ssr" },
-    ["<leader>rc"] = { function() vim.cmd.RustLsp("crateGraph", "backend") end, desc = "crateGraph" },
-    ["<leader>rt"] = { function() vim.cmd.RustLsp "syntaxTree" end, desc = "syntaxTree" },
-    ["<leader>rm"] = { function() vim.cmd.RustLsp("view", "mir") end, desc = "view" },
-    ["<leader>rh"] = { function() vim.cmd.RustLsp("view", "hir") end, desc = "view" },
-    ["<leader>rf"] = { function() vim.cmd.RustLsp "flyCheck" end, desc = "flyCheck" },
-    ["<leader>rl"] = { function() vim.cmd.RustLsp "logFile" end, desc = "logFile" },
-    ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
-
     ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
 
     ["<leader>x"] = { desc = "󰒡 Trouble" },
@@ -115,20 +94,23 @@ mappings = {
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
     ["<leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs (Trouble)" },
   },
+
   v = {
     ["<leader>r"] = { "<Plug>Send", desc = "Send to REPL" },
-    ["<leader>s"] = { function() require("spectre").open_visual() end, desc = "Spectre" },
   },
+
   i = {
     -- signature help, fails silently so attach always
     ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
   },
+
   -- terminal mappings
   t = {
     ["<C-BS>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
     ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
   },
+
   x = {
     -- better increment/decrement
     ["+"] = { "g<C-a>", desc = "Increment number" },
@@ -136,6 +118,7 @@ mappings = {
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
   },
+
   o = {
     -- line text-objects
     ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },

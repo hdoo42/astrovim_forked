@@ -2,9 +2,9 @@ return {
   {
     "Wansmer/treesj",
     keys = {
-      "<space>m",
-      "J",
-      "<space>s",
+      { "<space>m", desc = "Split or Join code block" },
+      { "J", desc = "Join code block" },
+      { "<space>s", desc = "Split code block" },
     },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
