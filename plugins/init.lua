@@ -22,6 +22,41 @@ return {
     end,
   },
   {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "para",
+          path = "~/vaults/PARA",
+        },
+        {
+          name = "personal",
+          path = "~/vaults/personal",
+        },
+        {
+          name = "work",
+          path = "~/vaults/work",
+        },
+      },
+      mappings = {
+        ["gf"] = {
+          action = function() return require("obsidian").util.gf_passthrough() end,
+          opts = { noremap = false, expr = true, buffer = true },
+        }, -- Toggle check-boxes.
+        ["<leader>,"] = {
+          action = function() return require("obsidian").util.toggle_checkbox() end,
+          opts = { buffer = true },
+        },
+      },
+    },
+  },
+  {
     "mrcjkb/rustaceanvim",
     version = "^3", -- Recommended
     ft = { "rust" },
