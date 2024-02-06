@@ -12,9 +12,9 @@ return {
     number = true,
     relativenumber = true, -- set relative numbered lines
     numberwidth = 4, -- set number column width to 4 {default 4}
-    shell = vim.fn.expand "~/.config/fish/Resources/base/usr/local/bin/fish",
+    shell = vim.fn.expand "/opt/homebrew/bin/fish",
 
-    -- conceallevel = 2, -- enable conceal
+    conceallevel = 2, -- enable conceal
     foldenable = false,
     foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
     foldmethod = "expr",

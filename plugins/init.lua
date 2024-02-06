@@ -9,6 +9,14 @@ return {
     build = function() vim.cmd "TSInstall! pkl" end,
   },
   {
+    "otavioschwanck/arrow.nvim",
+    lazy = false,
+    opts = {
+      show_icons = true,
+      leader_key = ";",
+    },
+  },
+  {
     "Wansmer/treesj",
     keys = {
       { "<space>m", desc = "Split or Join code block" },
