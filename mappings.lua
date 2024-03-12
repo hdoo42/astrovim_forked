@@ -10,6 +10,7 @@ mappings = {
     ["<C-Right>"] = false,
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
+    ["\\"] = false,
     ["<M-s>"] = { "<Plug>(leap-forward-to)", desc = "easy jump" },
     ["<M-S>"] = { "<Plug>(leap-backward-to)", desc = "easy jump" },
     ["q:"] = ":",
