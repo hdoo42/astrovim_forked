@@ -18,9 +18,9 @@ return {
       cmdline = {
         view = "cmdline_popup",
         opts = {
-          position = { row = "10%", col = "50%" },
           winblend = 1,
         },
+        format = {},
       },
       messages = { view_search = false },
       lsp = {
