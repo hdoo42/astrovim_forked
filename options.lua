@@ -30,6 +30,7 @@ return {
     wrap = true, -- soft wrap lines
   },
   g = {
+    maplocalleader = "\\",
     resession_enabled = true,
     skip_ts_context_commentstring_module = true,
   },
