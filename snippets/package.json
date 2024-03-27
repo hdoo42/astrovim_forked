@@ -1,5 +1,5 @@
 {
-  "name": "user_snippets",
+  "name": "custom-snippets",
   "engines": {
     "vscode": "^1.11.0"
   },
@@ -10,6 +10,12 @@
           "cpp"
         ],
         "path": "./cpp.json"
+      },
+      {
+        "language": [
+          "rust"
+        ],
+        "path": "./rust.json"
       }
     ]
   }

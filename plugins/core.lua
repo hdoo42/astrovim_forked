@@ -12,6 +12,7 @@ return {
     terminal_mappings = false,
   } },
   { "rcarriga/nvim-notify", opts = {
+    render = "minimal",
     timeout = 0,
   } },
   {

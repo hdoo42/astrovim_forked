@@ -1,0 +1,16 @@
+{
+  "snip1": {
+    "prefix": ["ctest"],
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    use super::*;",
+      "    #[test]",
+      "    fn ${1:name}(){",
+      "        ${2:unimplemented!();}",
+      "    }",
+      "}"
+    ],
+    "description": "#[cfg(test)]"
+  }
+}
