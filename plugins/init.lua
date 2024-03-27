@@ -6,7 +6,7 @@ return {
   },
   {
     "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
+    dependencies = { "luarocks.nvim", "nvim-nio", "nui.nvim", "plenary.nvim" },
     lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
     version = "*", -- Pin Neorg to the latest stable release
     config = function()
@@ -15,6 +15,7 @@ return {
           ["core.defaults"] = {}, -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
           ["core.ui.calendar"] = {},
+          ["core.journal"] = {},
           ["core.keybinds"] = {
             config = { neorg_leader = "\\" },
           },
