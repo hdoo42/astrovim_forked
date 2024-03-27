@@ -1,10 +1,14 @@
 return {
   {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    lazy = false, -- specify lazy = false because some lazy.nvim distributions set lazy = true by default
-    -- tag = "*",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "luarocks.nvim" },
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
     config = function()
       require("neorg").setup {
         load = {
@@ -55,41 +59,40 @@ return {
       }
     end,
   },
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "para",
-          path = "~/vaults/PARA",
-        },
-        {
-          name = "personal",
-          path = "~/vaults/personal",
-        },
-        {
-          name = "work",
-          path = "~/vaults/work",
-        },
-      },
-      mappings = {
-        ["gf"] = {
-          action = function() return require("obsidian").util.gf_passthrough() end,
-          opts = { noremap = false, expr = true, buffer = true },
-        }, -- Toggle check-boxes.
-        ["<leader>,"] = {
-          action = function() return require("obsidian").util.toggle_checkbox() end,
-          opts = { buffer = true },
-        },
-      },
-    },
-  },
+  -- { "epwalsh/obsidian.nvim",
+  --   version = "*", -- recommended, use latest release instead of latest commit
+  --   lazy = true,
+  --   ft = "markdown",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   opts = {
+  --     workspaces = {
+  --       {
+  --         name = "para",
+  --         path = "~/vaults/PARA",
+  --       },
+  --       {
+  --         name = "personal",
+  --         path = "~/vaults/personal",
+  --       },
+  --       {
+  --         name = "work",
+  --         path = "~/vaults/work",
+  --       },
+  --     },
+  --     mappings = {
+  --       ["gf"] = {
+  --         action = function() return require("obsidian").util.gf_passthrough() end,
+  --         opts = { noremap = false, expr = true, buffer = true },
+  --       }, -- Toggle check-boxes.
+  --       ["<leader>,"] = {
+  --         action = function() return require("obsidian").util.toggle_checkbox() end,
+  --         opts = { buffer = true },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "mrcjkb/rustaceanvim",
     version = "^3", -- Recommended
