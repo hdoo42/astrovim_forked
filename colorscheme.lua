@@ -1,1 +1,1 @@
-return "catppuccin-latte"
+return "catppuccin-frappe"
